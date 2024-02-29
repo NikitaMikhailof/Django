@@ -44,3 +44,4 @@ def archive(request, year):
     return HttpResponse(f'<h1>Архив по годам</h1><p>{year}</p>')
 
 
+
