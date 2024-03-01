@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 def log(func):
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
-        res = (str(*result))[-9:-5]
+        res = str(*result)[-9:-5]
         logger.info(f'Была запущена функция {func.__name__} которая вернула {res}')
         return result
     return wrapper
