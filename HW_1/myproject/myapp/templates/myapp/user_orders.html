@@ -1,0 +1,22 @@
+{%  extends 'base.html' %}
+
+{% block title %}{{ user.name }}'s Orders{% endblock %}
+
+{% block content %}
+    <h2>Заказы пользователя: {{ user.name }}</h2>
+    <table>
+        {% for order in orders %}
+           <h5>Заказ на дату {{ order.date_ordered }} и сумму {{ order.total_price }}</h5>
+                <ul>Позиции в заказе: 
+                    {% for key, value in dict_products_in_order.items %}
+                        {% if key == order.date_ordered %}
+                            {% for elem in value %}
+                                <li>{{ elem }} quantity: {{ order.quantity }}</li>
+                            {% endfor %}
+                        {% endif%}
+                    {% endfor %}    
+                </ul>
+        {% endfor %}     
+    </table>
+{% endblock  %}
+

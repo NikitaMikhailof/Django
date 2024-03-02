@@ -20,7 +20,7 @@ class Command(BaseCommand):
         list_product_in_order.append(product)
 
         if user and product is not None:
-            order = Order(customer=user, total_price=(quantity_product * product.price))
+            order = Order(customer=user, quantity=quantity_product, total_price=(quantity_product * product.price))
             order.save()
             order.products.set(list_product_in_order)
             order.save()
