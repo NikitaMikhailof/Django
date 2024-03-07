@@ -16,18 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from myapp.views import index, about, view_for, user_orders, user_orders_sort_time
 from myproject import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', index),
-    path('about/', about),
-    path('for/', view_for),
-    path('user/<int:user_id>/', user_orders, name='user_orders'),
-    path('sort_product/<int:user_id>/', user_orders_sort_time, name='user_orders_sort_time'),
-    path('forms/', include('myapp_forms.urls')),
+    path('orders/', include('orders.urls')),
+    path('forms/', include('forms.urls')),
 ]
 
 if settings.DEBUG:   
