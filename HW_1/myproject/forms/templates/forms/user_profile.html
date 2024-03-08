@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Профиль пользователя{% endblock %}
+
+{% block content %}
+<style type="text/css">
+    .image{
+        position:absolute;
+        top:0px;
+        left: 20%;
+    }
+    h4 {
+    font-size: 18px;
+    line-height: 20px;
+    color:orangered;
+    }
+   </style>
+<form  method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Отправить">
+</form>   
+<h4>{{ name }}</h4>
+<div class="image"><h3>Загрузка фотографии</h3>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form_upload_image.as_p }}
+        <input type="submit" value="Загрузить">
+    </form>
+    <h4>{{ message }}</h4>
+</div> 
+{% endblock %}
+

@@ -18,15 +18,15 @@ class ManyFieldsForm(forms.Form):
     gender = forms.ChoiceField(choices=[('M', 'Male'), ('F','Female')])
 
 
-class ManyFieldsFormWidget(forms.Form):
+class UserProfile(forms.Form):
     name = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class':'form-control','placeholder': 'Введите имя пользователя'}))
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control','placeholder': 'user@mail.ru'}))
-    age = forms.IntegerField(min_value=18, widget=forms.NumberInput(attrs={'class': 'form-control'}))
-    height = forms.FloatField(widget=forms.NumberInput(attrs={'class':'form-control'}))
-    is_active = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}))
+    age = forms.IntegerField(min_value=18, widget=forms.NumberInput(attrs={'class': 'form-control','placeholder': 'Введите  возраст'}))
+    address = forms.CharField(max_length=20, widget=forms.TextInput(attrs={'class':'form_control', 'placeholder': 'Введите ваш адрес'}))
     birthdate = forms.DateField(initial=datetime.date.today, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}))
     gender = forms.ChoiceField(choices=[('M', 'Male'), ('F', 'Female')], widget=forms.RadioSelect(attrs={'class': 'form-check-input'}))
     message = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'}))
+    is_active = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}))
 
 
 class UserForm(forms.Form):
@@ -55,4 +55,4 @@ class ImageForm(forms.Form):
 class OrderForm(forms.Form):
     user = forms.CharField(max_length=30)
     product = forms.CharField(max_length=30)
-    quantity = forms.IntegerField(max_value=10)
+    quantity = forms.IntegerField(min_value=1, max_value=10)

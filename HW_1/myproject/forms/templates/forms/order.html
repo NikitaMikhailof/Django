@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 
+{% block title %}{{ user }}'s Order{% endblock %}
+
 {% block content %}
-    <h3>Страница заказа</h3>
     <br>
     <br>
-    <h3>Заказ для {{ user }}: {{ product }} в количестве {{ quantity }}  успешно сформирован</h3>
-    <h4>на сумму {{ price }}</h4>
+    <h3>Заказ для {{ user }}</h3>
+    <ul>
+        <li>Наименование: {{ product }}</li>
+        <li>Количество: {{ quantity }}</li>
+        <li>Сумма: {{ price }}</li>
+        <li>Время заказа: {{ time }}</li>
+    </ul>
 {% endblock %}
+
