@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ user }}'s Order{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <h3>Заказ для {{ user }}</h3>
+    <ul>
+        <li>Наименование: {{ product }}</li>
+        <li>Количество: {{ quantity }}</li>
+        <li>Сумма: {{ price }}</li>
+        <li>Время заказа: {{ time }}</li>
+    </ul>
+{% endblock %}
+
