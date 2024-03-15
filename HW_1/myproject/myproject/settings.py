@@ -41,6 +41,7 @@ INSTALLED_APPS = [
  'orders',
  'forms',
  'myapp5',
+ 'start_page',
 ]
 
 MIDDLEWARE = [

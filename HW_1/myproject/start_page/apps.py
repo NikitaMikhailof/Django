@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class MyappFormsConfig(AppConfig):
+class StartPageConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'forms'
+    name = 'start_page'

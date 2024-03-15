@@ -26,6 +26,7 @@ def log_user_visiting(func):
     return wrapper
 
 
+
 def user_orders(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     orders = Order.objects.filter(customer=user).order_by('-date_ordered')
